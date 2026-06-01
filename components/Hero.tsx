@@ -1,14 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { MapPin, ArrowDown } from "@phosphor-icons/react";
+import { MapPin } from "@phosphor-icons/react";
 import { profile } from "@/lib/data";
 import { MagneticButton } from "./ui/MagneticButton";
-import { SmartPortrait } from "./ui/SmartPortrait";
 
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
 };
 
 const rise = {
@@ -41,35 +41,75 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section
-      id="main"
-      className="relative overflow-hidden pb-8 pt-32 sm:pt-40 lg:pb-10 lg:pt-44"
-    >
-      {/* Ambient warmth — soft, off-center radial bloom (no neon, no purple) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-[10%] -top-[10%] h-[640px] w-[640px] rounded-full opacity-60 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(190,158,108,0.18), rgba(190,158,108,0) 68%)",
-        }}
-      />
+    <>
+      <section
+        id="main"
+        className="relative min-h-[100dvh] overflow-hidden bg-[#0a0b0d] text-paper"
+      >
+        {/* Full-bleed cinematic background — subject anchored right, dark space left */}
+        <motion.div
+          initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={profile.heroImage}
+            alt={`Portrait of ${profile.name}`}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[64%_32%] [filter:contrast(1.05)] sm:object-[74%_46%] lg:object-[82%_50%]"
+          />
+        </motion.div>
 
-      <div className="shell relative">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
-          {/* Left — editorial type block */}
+        {/* Scrims: left (headline legibility), bottom (stats + watermark), top (nav) */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(8,9,12,0.94) 0%, rgba(8,9,12,0.7) 26%, rgba(8,9,12,0.2) 48%, rgba(8,9,12,0) 64%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(8,9,12,0.92) 0%, rgba(8,9,12,0) 34%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(8,9,12,0.55) 0%, rgba(8,9,12,0) 16%)",
+          }}
+        />
+        {/* Mobile: even darken guarantees legibility on narrow viewports */}
+        <div aria-hidden className="absolute inset-0 bg-[#0a0b0d]/45 lg:hidden" />
+
+        {/* Content */}
+        <div className="shell relative flex min-h-[100dvh] flex-col pb-10 pt-28">
           <motion.div
             variants={container}
             initial="hidden"
             animate="visible"
-            className="order-2 lg:order-1"
+            className="flex flex-1 flex-col justify-center"
           >
-            <motion.div variants={rise} className="mb-7 flex items-center gap-3">
-              <span className="eyebrow">Forensic Medicine &amp; Toxicology</span>
-              <span className="flex items-center gap-1.5 text-xs font-medium text-ink-faint">
+            <motion.div
+              variants={rise}
+              className="mb-7 flex flex-wrap items-center gap-x-3 gap-y-2"
+            >
+              <span className="eyebrow border-paper/20 bg-paper/5 text-brass-light">
+                Forensic Medicine &amp; Toxicology
+              </span>
+              <span className="flex items-center gap-1.5 text-xs font-medium text-paper/60">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brass opacity-70" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brass" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brass-light opacity-70" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brass-light" />
                 </span>
                 Accepting expert-opinion enquiries
               </span>
@@ -77,14 +117,14 @@ export function Hero() {
 
             <motion.h1
               variants={rise}
-              className="text-balance font-display text-[clamp(2.75rem,7vw,5.25rem)] font-medium leading-[0.96] tracking-tightest text-ink"
+              className="font-display text-[clamp(2.75rem,7vw,5.5rem)] font-medium leading-[0.95] tracking-tightest text-paper"
             >
               Dr. Guntheti
               <br />
               <span className="relative inline-block">
                 Bharath Kumar
                 <svg
-                  className="absolute -bottom-2 left-0 h-3 w-full text-brass/70"
+                  className="absolute -bottom-2 left-0 h-3 w-full text-brass-light/80"
                   viewBox="0 0 300 12"
                   fill="none"
                   preserveAspectRatio="none"
@@ -97,7 +137,7 @@ export function Hero() {
                     strokeLinecap="round"
                     initial={reduce ? { pathLength: 1 } : { pathLength: 0 }}
                     animate={{ pathLength: 1 }}
-                    transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
+                    transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.9 }}
                   />
                 </svg>
               </span>
@@ -105,116 +145,81 @@ export function Hero() {
 
             <motion.p
               variants={rise}
-              className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl"
+              className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70 sm:text-xl"
             >
-              <span className="font-medium text-ink">{profile.title}.</span>{" "}
+              <span className="font-medium text-paper">{profile.title}.</span>{" "}
               Nineteen years of medico-legal scholarship, autopsy practice, and
               mentorship — building forensic rigour into the next generation of
               physicians.
             </motion.p>
 
-            <motion.div variants={rise} className="mt-9 flex flex-wrap items-center gap-3">
-              <MagneticButton href="#contact" variant="solid">
+            <motion.div
+              variants={rise}
+              className="mt-9 flex flex-wrap items-center gap-3"
+            >
+              <MagneticButton href="#contact" variant="light">
                 Request a consultation
               </MagneticButton>
-              <MagneticButton href="#experience" variant="outline">
+              <MagneticButton href="#experience" variant="outlineLight">
                 Explore the work
               </MagneticButton>
             </motion.div>
 
             <motion.div
               variants={rise}
-              className="mt-8 flex items-center gap-2 text-sm text-ink-faint"
+              className="mt-8 flex items-center gap-2 text-sm text-paper/55"
             >
-              <MapPin size={16} weight="duotone" className="text-brass-deep" />
+              <MapPin size={16} weight="duotone" className="text-brass-light" />
               {profile.location}
             </motion.div>
           </motion.div>
 
-          {/* Right — portrait fading into the paper */}
-          <motion.div
-            initial={{ opacity: 0, scale: 1.04, filter: "blur(12px)" }}
-            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-            className="order-1 lg:order-2"
+          {/* Stat strip pinned at the foot of the hero */}
+          <motion.dl
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-2 gap-y-7 border-t border-paper/15 pt-7 sm:grid-cols-4 sm:gap-y-0"
           >
-            <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
-              {/* Frameless portrait — sharp at left, dissolving into the page at right */}
-              <SmartPortrait />
-
-              {/* Floating credential chip */}
+            {heroStats.map((s) => (
               <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.9 }}
-                className="absolute -left-3 bottom-6 rounded-2xl border border-line bg-paper/80 px-4 py-3 shadow-soft backdrop-blur-md sm:-left-6"
+                key={s.label}
+                variants={rise}
+                className="sm:border-l sm:border-paper/12 sm:pl-6 sm:first:border-l-0 sm:first:pl-0"
               >
-                <p className="font-display text-2xl font-medium leading-none text-navy">
-                  MD
-                </p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-wider text-ink-faint">
-                  Forensic Medicine
-                </p>
+                <dt className="font-display text-3xl font-medium tracking-tight text-paper sm:text-4xl">
+                  {s.value}
+                </dt>
+                <dd className="mt-1 text-xs leading-snug text-paper/55">
+                  {s.label}
+                </dd>
               </motion.div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Stat strip — hairline-divided, font-display numerals */}
-        <motion.dl
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={container}
-          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4"
-        >
-          {heroStats.map((s) => (
-            <motion.div
-              key={s.label}
-              variants={rise}
-              className="bg-paper px-5 py-6 transition-colors duration-500 hover:bg-paper-deep"
-            >
-              <dt className="font-display text-3xl font-medium tracking-tight text-navy sm:text-4xl">
-                {s.value}
-              </dt>
-              <dd className="mt-1 text-xs leading-snug text-ink-soft">{s.label}</dd>
-            </motion.div>
-          ))}
-        </motion.dl>
-      </div>
-
-      {/* Kinetic marquee band — seamless two-track horizontal scroll */}
-      <div className="group mt-10 flex select-none overflow-hidden border-y border-line py-4 lg:mt-12">
-        {[0, 1].map((dup) => (
-          <div
-            key={dup}
-            aria-hidden={dup === 1}
-            className="marquee-track flex shrink-0 animate-marquee items-center gap-6 pr-6 group-hover:[animation-play-state:paused]"
-          >
-            {marqueeWords.map((word) => (
-              <span key={`${word}-${dup}`} className="flex items-center gap-6">
-                <span className="font-display text-xl italic text-ink/70 sm:text-2xl">
-                  {word}
-                </span>
-                <span className="h-1.5 w-1.5 rounded-full bg-brass" />
-              </span>
             ))}
-          </div>
-        ))}
-      </div>
+          </motion.dl>
+        </div>
+      </section>
 
-      {/* Scroll cue */}
-      <div className="shell mt-5 hidden justify-end lg:flex">
-        <a
-          href="#about"
-          className="group flex items-center gap-2 text-xs font-medium uppercase tracking-eyebrow text-ink-faint transition-colors hover:text-ink"
-        >
-          Scroll
-          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-line transition-transform duration-500 ease-editorial group-hover:translate-y-0.5">
-            <ArrowDown size={13} weight="bold" />
-          </span>
-        </a>
+      {/* Kinetic marquee band on cream — transition into the page */}
+      <div className="bg-paper">
+        <div className="group flex select-none overflow-hidden border-b border-line py-4">
+          {[0, 1].map((dup) => (
+            <div
+              key={dup}
+              aria-hidden={dup === 1}
+              className="marquee-track flex shrink-0 animate-marquee items-center gap-6 pr-6 group-hover:[animation-play-state:paused]"
+            >
+              {marqueeWords.map((word) => (
+                <span key={`${word}-${dup}`} className="flex items-center gap-6">
+                  <span className="font-display text-xl italic text-ink/70 sm:text-2xl">
+                    {word}
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-brass" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </section>
+    </>
   );
 }

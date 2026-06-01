@@ -10,7 +10,7 @@ import {
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { useRef, type ReactNode } from "react";
 
-type Variant = "solid" | "outline" | "ghost";
+type Variant = "solid" | "outline" | "ghost" | "light" | "outlineLight";
 
 type MagneticButtonProps = {
   href: string;
@@ -28,12 +28,18 @@ const variants: Record<Variant, string> = {
   solid: "bg-navy text-paper hover:bg-navy-700",
   outline: "border border-ink/15 bg-paper/40 text-ink hover:border-ink/30 hover:bg-paper",
   ghost: "text-ink hover:text-brass-deep",
+  // For use over dark imagery
+  light: "bg-paper text-navy hover:bg-white",
+  outlineLight:
+    "border border-paper/25 bg-paper/[0.06] text-paper hover:border-paper/45 hover:bg-paper/10",
 };
 
 const iconWrapVariants: Record<Variant, string> = {
   solid: "bg-paper/15 text-paper group-hover:bg-brass group-hover:text-paper",
   outline: "bg-ink/5 text-ink group-hover:bg-navy group-hover:text-paper",
   ghost: "bg-ink/5 text-ink group-hover:bg-brass group-hover:text-paper",
+  light: "bg-navy/10 text-navy group-hover:bg-navy group-hover:text-paper",
+  outlineLight: "bg-paper/10 text-paper group-hover:bg-paper group-hover:text-navy",
 };
 
 /**

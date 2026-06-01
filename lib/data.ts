@@ -15,6 +15,8 @@ export const profile = {
   email: "bk62743@gmail.com",
   // Cinematic studio portrait — dark background, mounted gallery-style in the hero.
   headshot: "/headshot.png",
+  // Wide cinematic portrait used as the full-bleed hero background (subject right, dark left).
+  heroImage: "/hero-bg.png",
   summary:
     "Senior academician and medico-legal expert with over nineteen years of teaching experience in Forensic Medicine & Toxicology — spanning undergraduate and postgraduate instruction, academic leadership, medico-legal examination, autopsy practice, curriculum alignment, and faculty development.",
   longBio:

@@ -45,6 +45,9 @@ export function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Light treatment while sitting over the dark hero image (top, menu closed)
+  const onDark = !scrolled && !open;
+
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center">
       <motion.nav
@@ -62,7 +65,11 @@ export function Nav() {
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy text-[11px] font-semibold tracking-tight text-paper transition-colors duration-500 group-hover:bg-brass">
             {profile.initials}
           </span>
-          <span className="hidden text-sm font-semibold tracking-tight text-ink sm:block">
+          <span
+            className={`hidden text-sm font-semibold tracking-tight transition-colors duration-500 sm:block ${
+              onDark ? "text-paper" : "text-ink"
+            }`}
+          >
             {profile.shortName}
           </span>
         </a>
@@ -73,7 +80,11 @@ export function Nav() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-2 text-[13px] font-medium text-ink-soft transition-colors duration-300 hover:bg-ink/[0.04] hover:text-ink"
+              className={`rounded-full px-4 py-2 text-[13px] font-medium transition-colors duration-300 ${
+                onDark
+                  ? "text-paper/75 hover:bg-paper/10 hover:text-paper"
+                  : "text-ink-soft hover:bg-ink/[0.04] hover:text-ink"
+              }`}
             >
               {link.label}
             </a>
@@ -83,7 +94,11 @@ export function Nav() {
         <div className="flex items-center gap-2">
           <a
             href="#contact"
-            className="hidden rounded-full bg-navy px-5 py-2.5 text-[13px] font-medium text-paper transition-all duration-500 ease-editorial hover:bg-navy-700 active:scale-[0.97] md:inline-flex"
+            className={`hidden rounded-full px-5 py-2.5 text-[13px] font-medium transition-all duration-500 ease-editorial active:scale-[0.97] md:inline-flex ${
+              onDark
+                ? "bg-paper text-navy hover:bg-white"
+                : "bg-navy text-paper hover:bg-navy-700"
+            }`}
           >
             Consult
           </a>
@@ -94,16 +109,22 @@ export function Nav() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="relative flex h-10 w-10 items-center justify-center rounded-full bg-ink/[0.04] transition-colors duration-300 hover:bg-ink/[0.08] md:hidden"
+            className={`relative flex h-10 w-10 items-center justify-center rounded-full transition-colors duration-300 md:hidden ${
+              onDark ? "bg-paper/10 hover:bg-paper/20" : "bg-ink/[0.04] hover:bg-ink/[0.08]"
+            }`}
           >
             <span className="relative block h-3 w-5">
               <motion.span
-                className="absolute left-0 top-0 h-[1.5px] w-5 rounded-full bg-ink"
+                className={`absolute left-0 top-0 h-[1.5px] w-5 rounded-full ${
+                  onDark ? "bg-paper" : "bg-ink"
+                }`}
                 animate={open ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               />
               <motion.span
-                className="absolute left-0 bottom-0 h-[1.5px] w-5 rounded-full bg-ink"
+                className={`absolute left-0 bottom-0 h-[1.5px] w-5 rounded-full ${
+                  onDark ? "bg-paper" : "bg-ink"
+                }`}
                 animate={open ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               />
