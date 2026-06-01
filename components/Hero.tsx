@@ -139,13 +139,8 @@ export function Hero() {
             className="order-1 lg:order-2"
           >
             <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
-              {/* Double-bezel framing */}
-              <div className="bezel relative shadow-lift">
-                <div className="bezel-inner relative overflow-hidden bg-[#0a0a0c]">
-                  {/* Dark cinematic portrait, mounted gallery-style in a cream mat */}
-                  <SmartPortrait />
-                </div>
-              </div>
+              {/* Frameless portrait — sharp at left, dissolving into the page at right */}
+              <SmartPortrait />
 
               {/* Floating credential chip */}
               <motion.div
