@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --shell-x: clamp(1.25rem, 5vw, 6rem);
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* offset so anchor jumps clear the floating nav */
+    scroll-padding-top: 7rem;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(154, 123, 79, 0.22);
+    color: #211e1a;
+  }
+
+  /* Refined, low-contrast scrollbar that suits the paper aesthetic */
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f4ede0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(22, 38, 63, 0.28);
+    border-radius: 999px;
+    border: 3px solid #f4ede0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(22, 38, 63, 0.45);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    font-optical-sizing: auto;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: theme("maxWidth.shell");
+    margin-inline: auto;
+    padding-inline: var(--shell-x);
+  }
+
+  /* Eyebrow micro-pill preceding major headings */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-paper/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-eyebrow text-brass-deep;
+  }
+
+  /* Hairline divider used in high-density zones */
+  .hairline {
+    @apply h-px w-full bg-line;
+  }
+
+  /* Gradient-stroke effect for the wordmark accent */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Double-bezel outer shell */
+  .bezel {
+    @apply rounded-bezel bg-ink/[0.03] p-2 ring-1 ring-line;
+  }
+  .bezel-inner {
+    @apply rounded-bezel-inner bg-paper shadow-inset;
+  }
+}
+
+@layer utilities {
+  .pause-on-hover:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
