@@ -4,21 +4,29 @@ import Image from "next/image";
 import { useState } from "react";
 import { profile } from "@/lib/data";
 
+// Even feather on all four edges (tight band) so the portrait dissolves into
+// the page on every side rather than sitting in a hard frame.
+const FEATHER =
+  "linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent)";
+
+const featherStyle: React.CSSProperties = {
+  WebkitMaskImage: FEATHER,
+  WebkitMaskComposite: "source-in",
+  maskImage: FEATHER,
+  maskComposite: "intersect",
+};
+
 /**
- * Hero portrait — sharp where it meets the headline, then progressively
- * vignetted + blurred as it dissolves into the cream page on the right edge.
- * Falls back to a refined monogram if /public/headshot.png is missing.
+ * Hero portrait — sharp, centred subject that dissolves softly into the cream
+ * page on all four edges (tight feather + gentle vignette). Falls back to a
+ * monogram if /public/headshot.png is missing.
  */
 export function SmartPortrait() {
   const [failed, setFailed] = useState(false);
 
-  // Bias the crop slightly left: keeps the subject centred and pushes any
-  // bottom-right watermark out of frame (the right-edge treatment hides the rest).
-  const position = "object-[42%_45%]";
-
   if (failed) {
     return (
-      <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-navy via-navy-700 to-navy">
+      <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-navy via-navy-700 to-navy">
         <div className="text-center">
           <span className="font-display text-7xl font-medium tracking-tightest text-paper/90">
             {profile.initials}
@@ -32,70 +40,26 @@ export function SmartPortrait() {
   }
 
   return (
-    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem]">
-      {/* Sharp base */}
+    <div className="relative aspect-[4/5] w-full" style={featherStyle}>
+      {/* Sharp base — crop biased so the seated figure sits centred */}
       <Image
         src={profile.headshot}
         alt={`Portrait of ${profile.name}`}
         fill
         priority
         sizes="(max-width: 1024px) 90vw, 45vw"
-        className={`object-cover ${position} [filter:contrast(1.06)_brightness(1.02)]`}
+        className="object-cover object-[63%_40%] [filter:contrast(1.05)_brightness(1.06)]"
         onError={() => setFailed(true)}
       />
 
-      {/* Right-side blurred duplicate — masked so only the right edge softens */}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          WebkitMaskImage: "linear-gradient(to right, transparent 46%, black 82%)",
-          maskImage: "linear-gradient(to right, transparent 46%, black 82%)",
-        }}
-      >
-        <Image
-          src={profile.headshot}
-          alt=""
-          fill
-          sizes="(max-width: 1024px) 90vw, 45vw"
-          className={`scale-[1.12] object-cover ${position} [filter:blur(17px)_contrast(1.04)]`}
-        />
-      </div>
-
-      {/* Cinematic vignette — darkens the right + edges for depth */}
+      {/* Gentle vignette for depth toward the dissolving edges */}
       <div
         aria-hidden
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(130% 100% at 34% 42%, transparent 42%, rgba(6,6,9,0.58) 100%)",
+            "radial-gradient(120% 100% at 50% 42%, transparent 60%, rgba(6,6,9,0.42) 100%)",
         }}
-      />
-
-      {/* Right dissolve into the cream page */}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to right, transparent 50%, rgba(251,248,241,0.4) 78%, #FBF8F1 100%)",
-        }}
-      />
-
-      {/* Soft bottom grounding so the figure rises out of the page */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 h-1/4"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(251,248,241,0.85) 2%, rgba(251,248,241,0) 100%)",
-        }}
-      />
-
-      {/* Liquid-glass top edge refraction */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-[1.75rem] shadow-[inset_0_1px_0_rgba(255,255,255,0.10)]"
       />
     </div>
   );
