@@ -194,7 +194,7 @@ export function Hero() {
           <div
             key={dup}
             aria-hidden={dup === 1}
-            className="flex shrink-0 animate-marquee items-center gap-6 pr-6 group-hover:[animation-play-state:paused]"
+            className="marquee-track flex shrink-0 animate-marquee items-center gap-6 pr-6 group-hover:[animation-play-state:paused]"
           >
             {marqueeWords.map((word) => (
               <span key={`${word}-${dup}`} className="flex items-center gap-6">

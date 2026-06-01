@@ -102,3 +102,15 @@
     }
   }
 }
+
+/* The signature ticker keeps scrolling even when the OS requests reduced motion
+   — it is decorative, non-essential, and the site owner wants it in motion.
+   Unlayered + class specificity + !important overrides the global reset above. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-name: marquee !important;
+    animation-duration: 22s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+  }
+}
