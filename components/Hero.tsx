@@ -44,60 +44,77 @@ export function Hero() {
     <>
       <section
         id="main"
-        className="relative min-h-[100dvh] overflow-hidden bg-[#0a0b0d] text-paper"
+        className="relative flex min-h-[100dvh] flex-col overflow-hidden bg-[#0a0b0d] text-paper lg:block"
       >
-        {/* Full-bleed cinematic background — subject anchored right, dark space left */}
+        {/* Portrait — a top block on mobile (subject centred), full-bleed background on desktop */}
         <motion.div
           initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-0"
+          className="relative h-[44vh] w-full shrink-0 lg:absolute lg:inset-0 lg:h-full"
         >
+          {/* Mobile: centred seated portrait so the subject sits in the middle */}
           <Image
-            src={profile.heroImage}
+            src={profile.headshot}
             alt={`Portrait of ${profile.name}`}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[64%_32%] [filter:contrast(1.05)] sm:object-[74%_46%] lg:object-[82%_50%]"
+            className="object-cover object-[50%_24%] [filter:contrast(1.05)] lg:hidden"
+          />
+          {/* Desktop: wide cinematic background (subject right, dark space left) */}
+          <Image
+            src={profile.heroImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hidden object-cover object-[82%_50%] [filter:contrast(1.05)] lg:block"
+          />
+          {/* Top fade for nav legibility (all sizes) */}
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(8,9,12,0.6) 0%, rgba(8,9,12,0) 18%)",
+            }}
+          />
+          {/* Mobile: fade the foot of the picture into the page below it */}
+          <div
+            aria-hidden
+            className="absolute inset-0 lg:hidden"
+            style={{
+              background:
+                "linear-gradient(to top, #0a0b0d 1%, rgba(10,11,13,0) 38%)",
+            }}
+          />
+          {/* Desktop scrims: left (headline legibility) + bottom (stats) */}
+          <div
+            aria-hidden
+            className="absolute inset-0 hidden lg:block"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(8,9,12,0.94) 0%, rgba(8,9,12,0.7) 26%, rgba(8,9,12,0.2) 48%, rgba(8,9,12,0) 64%)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 hidden lg:block"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(8,9,12,0.92) 0%, rgba(8,9,12,0) 34%)",
+            }}
           />
         </motion.div>
 
-        {/* Scrims: left (headline legibility), bottom (stats + watermark), top (nav) */}
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, rgba(8,9,12,0.94) 0%, rgba(8,9,12,0.7) 26%, rgba(8,9,12,0.2) 48%, rgba(8,9,12,0) 64%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(8,9,12,0.92) 0%, rgba(8,9,12,0) 34%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(8,9,12,0.55) 0%, rgba(8,9,12,0) 16%)",
-          }}
-        />
-        {/* Mobile: even darken guarantees legibility on narrow viewports */}
-        <div aria-hidden className="absolute inset-0 bg-[#0a0b0d]/45 lg:hidden" />
-
-        {/* Content */}
-        <div className="shell relative flex min-h-[100dvh] flex-col pb-10 pt-28">
+        {/* Content — below the picture on mobile, centred overlay on desktop */}
+        <div className="shell relative z-10 flex flex-1 flex-col pb-10 pt-7 lg:min-h-[100dvh] lg:flex-none lg:pt-28">
           <motion.div
             variants={container}
             initial="hidden"
             animate="visible"
-            className="flex flex-1 flex-col justify-center"
+            className="flex flex-col lg:flex-1 lg:justify-center"
           >
             <motion.div
               variants={rise}
@@ -174,12 +191,12 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Stat strip pinned at the foot of the hero */}
+          {/* Stat strip */}
           <motion.dl
             variants={container}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-2 gap-y-7 border-t border-paper/15 pt-7 sm:grid-cols-4 sm:gap-y-0"
+            className="mt-10 grid grid-cols-2 gap-y-7 border-t border-paper/15 pt-7 sm:grid-cols-4 sm:gap-y-0 lg:mt-0"
           >
             {heroStats.map((s) => (
               <motion.div

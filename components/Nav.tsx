@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -60,8 +61,14 @@ export function Nav() {
       >
         {/* Wordmark → home */}
         <Link href="/" className="group flex items-center gap-3" aria-label={profile.name}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brass text-[11px] font-semibold tracking-tight text-coal transition-colors duration-500 group-hover:bg-brass-light">
-            {profile.initials}
+          <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-brass/60 transition-all duration-500 group-hover:ring-brass">
+            <Image
+              src="/logo.png"
+              alt={profile.name}
+              fill
+              sizes="36px"
+              className="object-cover object-[38%_24%]"
+            />
           </span>
           <span className="hidden text-sm font-semibold tracking-tight text-ink sm:block">
             {profile.shortName}
