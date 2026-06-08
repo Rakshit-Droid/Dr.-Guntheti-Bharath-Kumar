@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import { profile } from "@/lib/data";
 import { GrainOverlay } from "@/components/GrainOverlay";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -105,7 +107,9 @@ export default function RootLayout({
           Skip to content
         </a>
         <GrainOverlay />
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

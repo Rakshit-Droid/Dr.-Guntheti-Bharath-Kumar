@@ -13,7 +13,7 @@ export function Research() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="research" className="relative bg-paper-deep py-24 lg:py-36">
+    <section id="research" className="relative bg-coal-soft py-24 lg:py-36">
       <div className="shell">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           {/* Left — heading + highlights */}
@@ -33,7 +33,7 @@ export function Research() {
             <Reveal delay={0.15}>
               <div className="mt-10 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-line bg-line">
                 {research.highlights.map((h) => (
-                  <div key={h.label} className="bg-paper-deep px-4 py-5 text-center">
+                  <div key={h.label} className="bg-coal-soft px-4 py-5 text-center">
                     <p className="font-display text-3xl font-medium tracking-tight text-navy">
                       {h.value}
                     </p>
@@ -48,7 +48,7 @@ export function Research() {
 
           {/* Right — interactive accordion of research areas */}
           <Reveal delay={0.1}>
-            <div className="overflow-hidden rounded-bezel border border-line bg-paper">
+            <div className="overflow-hidden rounded-bezel border border-line bg-coal-raised">
               {research.areas.map((area, i) => {
                 const Icon = areaIcons[i % areaIcons.length];
                 const isOpen = active === i;
@@ -56,7 +56,7 @@ export function Research() {
                   <div
                     key={area.title}
                     className={`border-b border-line last:border-b-0 transition-colors duration-500 ${
-                      isOpen ? "bg-paper" : "bg-paper hover:bg-paper-deep"
+                      isOpen ? "bg-coal-raised" : "bg-coal-raised hover:bg-coal-soft"
                     }`}
                   >
                     <button
@@ -68,7 +68,7 @@ export function Research() {
                       <span
                         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl transition-colors duration-500 ${
                           isOpen
-                            ? "bg-navy text-paper"
+                            ? "bg-brass text-coal"
                             : "bg-navy/[0.06] text-navy"
                         }`}
                       >

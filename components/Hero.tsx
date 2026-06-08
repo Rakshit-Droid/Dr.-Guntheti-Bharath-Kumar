@@ -22,7 +22,7 @@ const rise = {
 };
 
 const heroStats = [
-  { value: "19+", label: "Years teaching" },
+  { value: "20+", label: "Years teaching" },
   { value: "100", label: "PG autopsies" },
   { value: "30+", label: "Publications" },
   { value: "23+", label: "Universities examined" },
@@ -148,7 +148,7 @@ export function Hero() {
               className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70 sm:text-xl"
             >
               <span className="font-medium text-paper">{profile.title}.</span>{" "}
-              Nineteen years of medico-legal scholarship, autopsy practice, and
+              Twenty years of medico-legal scholarship, autopsy practice, and
               mentorship — building forensic rigour into the next generation of
               physicians.
             </motion.p>
@@ -157,10 +157,10 @@ export function Hero() {
               variants={rise}
               className="mt-9 flex flex-wrap items-center gap-3"
             >
-              <MagneticButton href="#contact" variant="light">
+              <MagneticButton href="/contact" variant="light">
                 Request a consultation
               </MagneticButton>
-              <MagneticButton href="#experience" variant="outlineLight">
+              <MagneticButton href="/experience" variant="outlineLight">
                 Explore the work
               </MagneticButton>
             </motion.div>
@@ -199,8 +199,8 @@ export function Hero() {
         </div>
       </section>
 
-      {/* Kinetic marquee band on cream — transition into the page */}
-      <div className="bg-paper">
+      {/* Kinetic marquee band — transition into the page */}
+      <div className="bg-coal">
         <div className="group flex select-none overflow-hidden border-b border-line py-4">
           {[0, 1].map((dup) => (
             <div

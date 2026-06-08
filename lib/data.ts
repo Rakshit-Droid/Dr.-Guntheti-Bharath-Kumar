@@ -18,23 +18,23 @@ export const profile = {
   // Wide cinematic portrait used as the full-bleed hero background (subject right, dark left).
   heroImage: "/hero-bg.png",
   summary:
-    "Senior academician and medico-legal expert with over nineteen years of teaching experience in Forensic Medicine & Toxicology — spanning undergraduate and postgraduate instruction, academic leadership, medico-legal examination, autopsy practice, curriculum alignment, and faculty development.",
+    "Senior academician and medico-legal expert with over twenty years of teaching experience in Forensic Medicine & Toxicology — spanning undergraduate and postgraduate instruction, academic leadership, medico-legal examination, autopsy practice, curriculum alignment, and faculty development.",
   longBio:
     "Across two decades at Mamata Medical College, Dr. Bharath Kumar has shaped how forensic medicine is taught, examined, and practised in Telangana — building the department's Clinical Forensic Medicine and survivor examination units, steering CBME alignment for the state, and mentoring generations of undergraduate and postgraduate physicians toward rigorous medico-legal practice.",
 } as const;
 
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Teaching", href: "#teaching" },
-  { label: "Research", href: "#research" },
-  { label: "Credentials", href: "#credentials" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Experience", href: "/experience" },
+  { label: "Teaching", href: "/teaching" },
+  { label: "Research", href: "/research" },
+  { label: "Credentials", href: "/credentials" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 /** Headline metrics — intentionally specific, sourced from the CV. */
 export const stats = [
-  { value: 19, suffix: "+", label: "Years teaching Forensic Medicine", note: "Undergraduate instruction" },
+  { value: 20, suffix: "+", label: "Years teaching Forensic Medicine", note: "Undergraduate instruction" },
   { value: 16, suffix: "+", label: "Years of postgraduate teaching", note: "MD-level supervision" },
   { value: 23, suffix: "+", label: "Universities served as examiner", note: "KNRUHS, RGUHS, KUHS, MUHS, MAHE" },
   { value: 100, suffix: "", label: "Postgraduate autopsies conducted", note: "Plus 50 foetal autopsies" },
@@ -129,12 +129,12 @@ export const medicoLegalWork = [
 
 export const teaching = {
   intro:
-    "Mentorship is the throughline of a nineteen-year career — guiding undergraduates into clinical reasoning, supervising postgraduate research, and setting the examination standards that define the discipline across the region.",
+    "Mentorship is the throughline of a twenty-year career — guiding undergraduates into clinical reasoning, supervising postgraduate research, and setting the examination standards that define the discipline across the region.",
   pillars: [
     {
       title: "Undergraduate Instruction",
       detail:
-        "More than 19 years guiding MBBS students through Forensic Medicine — from foundational concepts to clinical forensic reasoning under the CBME framework.",
+        "More than 20 years guiding MBBS students through Forensic Medicine — from foundational concepts to clinical forensic reasoning under the CBME framework.",
     },
     {
       title: "Postgraduate Supervision",
@@ -156,7 +156,7 @@ export const teaching = {
     "Resource Faculty, Medical Education Technology Unit (METU)",
     "Coordinator, CISP 3rd Professional Alignment & Integration",
     "Faculty / participant across 80+ workshops, conferences & CMEs",
-    "Academic participation: METCON-2024, VICHPE-2021, multiple CISP workshops",
+    "Academic participation: TG Forensic Medicon 2026, METCON-2024, VICHPE-2021 & CISP workshops",
   ],
 } as const;
 
@@ -190,9 +190,9 @@ export const research = {
 
 export const education = [
   {
-    qualification: "Advanced Course in Medical Education (ACME 2025B)",
+    qualification: "Advanced Course in Medical Education (ACME Course 2025)",
     org: "MCI Nodal Centre, BMC Hyderabad",
-    year: "Ongoing",
+    year: "2025",
   },
   {
     qualification: "MD, Forensic Medicine & Toxicology",

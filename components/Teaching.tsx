@@ -17,7 +17,7 @@ const pillarIcons = [Student, Microscope, Exam, Books];
 
 export function Teaching() {
   return (
-    <section id="teaching" className="relative bg-paper py-24 lg:py-36">
+    <section id="teaching" className="relative bg-coal py-24 lg:py-36">
       <div className="shell">
         <SectionHeading
           eyebrow="Education & Mentorship"
@@ -51,7 +51,7 @@ export function Teaching() {
               <motion.article
                 key={pillar.title}
                 variants={itemVariants}
-                className={`group relative flex flex-col justify-between overflow-hidden rounded-bezel border border-line bg-paper p-8 shadow-soft transition-all duration-700 ease-editorial hover:-translate-y-1 hover:shadow-lift sm:p-9 ${span}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-bezel border border-line bg-coal-raised p-8 shadow-soft transition-all duration-700 ease-editorial hover:-translate-y-1 hover:shadow-lift sm:p-9 ${span}`}
               >
                 {/* hover wash */}
                 <div
@@ -59,7 +59,7 @@ export function Teaching() {
                   className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brass/[0.07] opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
                 />
                 <div className="relative">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-navy/[0.06] text-navy transition-colors duration-500 group-hover:bg-navy group-hover:text-paper">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-navy/[0.06] text-navy transition-colors duration-500 group-hover:bg-brass group-hover:text-coal">
                     <Icon size={22} weight="duotone" />
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-medium leading-tight tracking-tight text-ink">
@@ -79,7 +79,7 @@ export function Teaching() {
         </RevealGroup>
 
         {/* Faculty development strip */}
-        <div className="mt-14 grid gap-10 rounded-bezel border border-line bg-paper-deep p-8 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:p-12">
+        <div className="mt-14 grid gap-10 rounded-bezel border border-line bg-coal-soft p-8 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:p-12">
           <Reveal>
             <div>
               <span className="eyebrow mb-4">Faculty Development</span>
@@ -87,7 +87,7 @@ export function Teaching() {
                 Training the people who train the doctors.
               </h3>
               <div className="mt-6">
-                <MagneticButton href="#contact" variant="outline">
+                <MagneticButton href="/contact" variant="outline">
                   Invite for a workshop
                 </MagneticButton>
               </div>
@@ -101,7 +101,7 @@ export function Teaching() {
                 variants={itemVariants}
                 className="group flex items-center gap-4 py-4"
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-paper text-ink-faint transition-colors duration-500 group-hover:text-brass-deep">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-coal-raised text-ink-faint transition-colors duration-500 group-hover:text-brass-deep">
                   <ArrowRight
                     size={14}
                     weight="bold"

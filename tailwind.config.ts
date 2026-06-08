@@ -9,29 +9,38 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Editorial Luxury palette — warm paper, ink, deep navy brand, muted brass accent
-        paper: {
-          DEFAULT: "#FBF8F1", // warm cream base
-          deep: "#F4EDE0", // alternating section tone
-          dim: "#EFE7D7", // pressed/hover surface
+        // "Black & Gold" — dark surfaces (named `coal` to avoid the text-base font-size clash)
+        coal: {
+          DEFAULT: "#0A0A0B", // page background (warm near-black)
+          soft: "#0E0E10", // alternating section tone
+          raised: "#141417", // cards / elevated surfaces
+          raised2: "#1B1B1F", // hover / pressed surface
         },
+        // Light family — primary text + light translucents on dark
+        paper: {
+          DEFAULT: "#F4EFE4", // warm off-white text/light elements
+          deep: "#ECE6D8",
+          dim: "#E2DAC8",
+        },
+        // ink kept LIGHT so existing text-ink* read correctly on the dark base
         ink: {
-          DEFAULT: "#211E1A", // warm off-black (never pure #000)
-          soft: "#514B42", // muted body text
-          faint: "#8A8276", // captions, meta
+          DEFAULT: "#F4EFE4",
+          soft: "#ABA493", // muted body text
+          faint: "#7C7563", // captions, meta
+        },
+        // Gold accent (navy repurposed to gold so prior navy accents invert cleanly)
+        brass: {
+          DEFAULT: "#C2A24E", // primary gold (fills)
+          light: "#E6CB84", // bright gold (text/accents on black)
+          deep: "#CBAA5C", // readable gold for small text
         },
         navy: {
-          DEFAULT: "#16263F", // brand anchor
-          700: "#1F3A5F",
-          600: "#2A4A73",
+          DEFAULT: "#C2A24E",
+          700: "#A98A3C",
+          600: "#D8BC6E",
         },
-        brass: {
-          DEFAULT: "#9A7B4F", // single accent, < 80% saturation
-          light: "#BE9E6C",
-          deep: "#7C6240",
-        },
-        line: "rgba(33, 30, 26, 0.12)",
-        "line-soft": "rgba(33, 30, 26, 0.07)",
+        line: "rgba(244, 239, 228, 0.10)",
+        "line-soft": "rgba(244, 239, 228, 0.055)",
       },
       fontFamily: {
         // wired to next/font CSS variables in app/layout.tsx

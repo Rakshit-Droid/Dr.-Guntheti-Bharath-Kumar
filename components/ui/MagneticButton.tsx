@@ -25,21 +25,22 @@ const base =
   "group relative inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm font-medium tracking-tight transition-colors duration-500 ease-editorial active:scale-[0.98] will-change-transform";
 
 const variants: Record<Variant, string> = {
-  solid: "bg-navy text-paper hover:bg-navy-700",
-  outline: "border border-ink/15 bg-paper/40 text-ink hover:border-ink/30 hover:bg-paper",
-  ghost: "text-ink hover:text-brass-deep",
-  // For use over dark imagery
-  light: "bg-paper text-navy hover:bg-white",
+  solid: "bg-brass text-coal hover:bg-brass-light",
+  outline:
+    "border border-line bg-paper/[0.04] text-ink hover:border-paper/30 hover:bg-paper/[0.08]",
+  ghost: "text-ink hover:text-brass-light",
+  // Cream fill for use over dark imagery
+  light: "bg-paper text-coal hover:bg-white",
   outlineLight:
-    "border border-paper/25 bg-paper/[0.06] text-paper hover:border-paper/45 hover:bg-paper/10",
+    "border border-paper/25 bg-paper/[0.06] text-ink hover:border-paper/45 hover:bg-paper/10",
 };
 
 const iconWrapVariants: Record<Variant, string> = {
-  solid: "bg-paper/15 text-paper group-hover:bg-brass group-hover:text-paper",
-  outline: "bg-ink/5 text-ink group-hover:bg-navy group-hover:text-paper",
-  ghost: "bg-ink/5 text-ink group-hover:bg-brass group-hover:text-paper",
-  light: "bg-navy/10 text-navy group-hover:bg-navy group-hover:text-paper",
-  outlineLight: "bg-paper/10 text-paper group-hover:bg-paper group-hover:text-navy",
+  solid: "bg-coal/15 text-coal group-hover:bg-coal group-hover:text-brass-light",
+  outline: "bg-paper/10 text-ink group-hover:bg-brass group-hover:text-coal",
+  ghost: "bg-paper/10 text-ink group-hover:bg-brass group-hover:text-coal",
+  light: "bg-coal/10 text-coal group-hover:bg-coal group-hover:text-paper",
+  outlineLight: "bg-paper/10 text-ink group-hover:bg-paper group-hover:text-coal",
 };
 
 /**

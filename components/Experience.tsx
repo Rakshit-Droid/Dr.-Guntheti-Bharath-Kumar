@@ -10,7 +10,7 @@ const medicoIcons = [Scales, ShieldCheck, Buildings, Gavel];
 
 export function Experience() {
   return (
-    <section id="experience" className="relative bg-paper-deep py-24 lg:py-36">
+    <section id="experience" className="relative bg-coal-soft py-24 lg:py-36">
       <div className="shell">
         <SectionHeading
           eyebrow="Trajectory"
@@ -49,7 +49,7 @@ export function Experience() {
                       className={`relative z-10 block h-3.5 w-3.5 rounded-full border-2 transition-all duration-500 ${
                         item.current
                           ? "border-brass bg-brass shadow-[0_0_0_4px_rgba(190,158,108,0.18)]"
-                          : "border-ink/25 bg-paper-deep group-hover:border-navy"
+                          : "border-ink/25 bg-coal-soft group-hover:border-navy"
                       }`}
                     />
                   </div>
@@ -59,7 +59,7 @@ export function Experience() {
                         {item.period}
                       </span>
                       {item.current && (
-                        <span className="rounded-full bg-navy px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-paper">
+                        <span className="rounded-full bg-brass px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-coal">
                           Current
                         </span>
                       )}
@@ -88,7 +88,7 @@ export function Experience() {
                   <motion.div
                     key={`${role.role}-${role.body}`}
                     variants={itemVariants}
-                    className="bg-paper px-5 py-4 transition-colors duration-500 hover:bg-paper-dim"
+                    className="bg-coal-raised px-5 py-4 transition-colors duration-500 hover:bg-coal-raised2"
                   >
                     <p className="font-display text-base font-medium tracking-tight text-navy">
                       {role.role}
@@ -118,7 +118,7 @@ export function Experience() {
                           key={w.title}
                           className="group flex items-start gap-4 px-4 py-4"
                         >
-                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy/[0.06] text-navy transition-colors duration-500 group-hover:bg-navy group-hover:text-paper">
+                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy/[0.06] text-navy transition-colors duration-500 group-hover:bg-brass group-hover:text-coal">
                             <Icon size={17} weight="duotone" />
                           </span>
                           <div>

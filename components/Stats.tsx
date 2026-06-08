@@ -7,7 +7,7 @@ import { Reveal, RevealGroup, itemVariants } from "./ui/Reveal";
 
 export function Stats() {
   return (
-    <section className="relative overflow-hidden bg-navy py-24 text-paper lg:py-32">
+    <section className="relative overflow-hidden bg-coal-soft py-24 text-paper lg:py-32">
       {/* subtle brass bloom, off-center */}
       <div
         aria-hidden
@@ -41,7 +41,7 @@ export function Stats() {
             <motion.div
               key={s.label}
               variants={itemVariants}
-              className="group relative bg-navy px-7 py-9 transition-colors duration-500 hover:bg-navy-700"
+              className="group relative bg-coal-raised px-7 py-9 transition-colors duration-500 hover:bg-coal-raised2"
             >
               <div className="flex items-baseline gap-1">
                 <Counter

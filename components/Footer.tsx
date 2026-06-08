@@ -6,7 +6,7 @@ import { profile, navLinks } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-navy pt-20 text-paper">
+    <footer className="relative overflow-hidden border-t border-line bg-coal pt-20 text-paper">
       {/* Oversized wordmark watermark */}
       <div className="shell relative">
         <div className="flex flex-col gap-12 pb-14 lg:flex-row lg:items-end lg:justify-between">
@@ -15,7 +15,7 @@ export function Footer() {
               {profile.initials}
             </span>
             <h2 className="mt-6 text-balance font-display text-3xl font-medium leading-tight tracking-tightest sm:text-4xl">
-              Forensic rigour, taught and practised — for nineteen years and counting.
+              Forensic rigour, taught and practised — for twenty years and counting.
             </h2>
             <a
               href={`mailto:${profile.email}`}

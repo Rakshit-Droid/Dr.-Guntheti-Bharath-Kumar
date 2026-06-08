@@ -7,7 +7,7 @@ import { Reveal, RevealGroup, itemVariants } from "./ui/Reveal";
 
 export function About() {
   return (
-    <section id="about" className="relative bg-paper pt-12 pb-24 lg:pt-16 lg:pb-36">
+    <section id="about" className="relative bg-coal pt-12 pb-24 lg:pt-16 lg:pb-36">
       <div className="shell">
         {/* Asymmetric two-column: oversized statement left, expertise index right */}
         <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">

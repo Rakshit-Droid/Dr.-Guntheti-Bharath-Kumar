@@ -39,7 +39,7 @@ function validate(fields: Fields): Errors {
 }
 
 const fieldBase =
-  "w-full rounded-xl border bg-paper px-4 py-3 text-[15px] text-ink placeholder:text-ink-faint transition-all duration-300 ease-editorial focus:outline-none focus:ring-2 focus:ring-navy/15";
+  "w-full rounded-xl border bg-coal px-4 py-3 text-[15px] text-ink placeholder:text-ink-faint transition-all duration-300 ease-editorial focus:outline-none focus:ring-2 focus:ring-navy/15";
 
 export function ContactForm() {
   const [fields, setFields] = useState<Fields>({
@@ -129,7 +129,7 @@ export function ContactForm() {
               <button
                 type="button"
                 onClick={reset}
-                className="rounded-full border border-line bg-paper px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-paper-deep"
+                className="rounded-full border border-line bg-coal px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-coal-soft"
               >
                 Send another enquiry
               </button>
@@ -249,7 +249,7 @@ export function ContactForm() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="group inline-flex items-center gap-3 rounded-full bg-navy py-2.5 pl-6 pr-2.5 text-sm font-medium text-paper transition-all duration-500 ease-editorial hover:bg-navy-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="group inline-flex items-center gap-3 rounded-full bg-brass py-2.5 pl-6 pr-2.5 text-sm font-medium text-coal transition-all duration-500 ease-editorial hover:bg-navy-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {status === "submitting" ? "Sending…" : "Send enquiry"}
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-paper/15 text-paper transition-colors duration-500 group-hover:bg-brass">

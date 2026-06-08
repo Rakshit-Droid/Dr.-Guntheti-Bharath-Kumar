@@ -19,30 +19,30 @@
   }
 
   body {
-    @apply bg-paper text-ink font-sans antialiased;
+    @apply bg-coal text-ink font-sans antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: rgba(154, 123, 79, 0.22);
-    color: #211e1a;
+    background-color: rgba(226, 197, 122, 0.28);
+    color: #0a0a0b;
   }
 
-  /* Refined, low-contrast scrollbar that suits the paper aesthetic */
+  /* Refined, low-contrast scrollbar tuned for the black & gold aesthetic */
   ::-webkit-scrollbar {
     width: 11px;
   }
   ::-webkit-scrollbar-track {
-    background: #f4ede0;
+    background: #0e0e10;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(22, 38, 63, 0.28);
+    background: rgba(194, 162, 78, 0.32);
     border-radius: 999px;
-    border: 3px solid #f4ede0;
+    border: 3px solid #0e0e10;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(22, 38, 63, 0.45);
+    background: rgba(226, 197, 122, 0.5);
   }
 
   h1,
@@ -64,7 +64,7 @@
 
   /* Eyebrow micro-pill preceding major headings */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-line bg-paper/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-eyebrow text-brass-deep;
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-paper/[0.04] px-3 py-1 text-[10px] font-semibold uppercase tracking-eyebrow text-brass-light;
   }
 
   /* Hairline divider used in high-density zones */
@@ -79,10 +79,10 @@
 
   /* Double-bezel outer shell */
   .bezel {
-    @apply rounded-bezel bg-ink/[0.03] p-2 ring-1 ring-line;
+    @apply rounded-bezel bg-paper/[0.04] p-2 ring-1 ring-line;
   }
   .bezel-inner {
-    @apply rounded-bezel-inner bg-paper shadow-inset;
+    @apply rounded-bezel-inner bg-coal-raised shadow-inset-dark;
   }
 }
 

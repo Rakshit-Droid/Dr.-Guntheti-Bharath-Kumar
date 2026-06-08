@@ -24,7 +24,7 @@ const directChannels = [
 
 export function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-paper-deep py-24 lg:py-36">
+    <section id="contact" className="relative overflow-hidden bg-coal-soft py-24 lg:py-36">
       {/* warm bloom */}
       <div
         aria-hidden
@@ -56,9 +56,9 @@ export function Contact() {
                   key={c.label}
                   href={c.href}
                   variants={itemVariants}
-                  className="group flex flex-col gap-4 bg-paper p-7 transition-colors duration-500 hover:bg-paper-dim"
+                  className="group flex flex-col gap-4 bg-coal-raised p-7 transition-colors duration-500 hover:bg-coal-raised2"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-navy/[0.06] text-navy transition-colors duration-500 group-hover:bg-navy group-hover:text-paper">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-navy/[0.06] text-navy transition-colors duration-500 group-hover:bg-brass group-hover:text-coal">
                     <c.icon size={19} weight="duotone" />
                   </span>
                   <span>
@@ -75,7 +75,7 @@ export function Contact() {
 
             {/* Addresses */}
             <Reveal delay={0.1}>
-              <div className="overflow-hidden rounded-bezel border border-line bg-paper">
+              <div className="overflow-hidden rounded-bezel border border-line bg-coal-raised">
                 <div className="flex items-start gap-4 border-b border-line p-7">
                   <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy/[0.06] text-navy">
                     <MapPin size={17} weight="duotone" />

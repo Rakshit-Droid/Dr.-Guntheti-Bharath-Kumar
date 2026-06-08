@@ -39,7 +39,7 @@ function PanelLabel({
 
 export function Credentials() {
   return (
-    <section id="credentials" className="relative bg-paper py-24 lg:py-36">
+    <section id="credentials" className="relative bg-coal py-24 lg:py-36">
       <div className="shell">
         <SectionHeading
           eyebrow="The Record"
@@ -52,7 +52,7 @@ export function Credentials() {
         <div className="mt-16 grid grid-cols-1 gap-5 lg:mt-20 lg:grid-cols-12">
           {/* Education — tall, prominent */}
           <Reveal className="lg:col-span-7" delay={0}>
-            <div className="h-full rounded-bezel border border-line bg-paper-deep p-8 shadow-soft sm:p-10">
+            <div className="h-full rounded-bezel border border-line bg-coal-soft p-8 shadow-soft sm:p-10">
               <PanelLabel icon={GraduationCap}>Education</PanelLabel>
               <RevealGroup stagger={0.08} className="flex flex-col">
                 {education.map((ed, i) => (
@@ -80,7 +80,7 @@ export function Credentials() {
 
           {/* Certifications */}
           <Reveal className="lg:col-span-5" delay={0.06}>
-            <div className="h-full rounded-bezel border border-line bg-paper p-8 shadow-soft sm:p-10">
+            <div className="h-full rounded-bezel border border-line bg-coal-raised p-8 shadow-soft sm:p-10">
               <PanelLabel icon={Certificate}>Certifications & Training</PanelLabel>
               <RevealGroup stagger={0.07} className="flex flex-col gap-px">
                 {certifications.map((c) => (
@@ -103,7 +103,7 @@ export function Credentials() {
 
           {/* Awards — navy feature */}
           <Reveal className="lg:col-span-5" delay={0.1}>
-            <div className="flex h-full flex-col justify-between overflow-hidden rounded-bezel bg-navy p-8 text-paper shadow-lift sm:p-10">
+            <div className="flex h-full flex-col justify-between overflow-hidden rounded-bezel bg-coal-raised p-8 text-paper shadow-lift sm:p-10">
               <div>
                 <div className="mb-5 flex items-center gap-2.5">
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-paper/10 text-brass-light">
@@ -129,7 +129,7 @@ export function Credentials() {
 
           {/* Memberships */}
           <Reveal className="lg:col-span-7" delay={0.14}>
-            <div className="h-full rounded-bezel border border-line bg-paper p-8 shadow-soft sm:p-10">
+            <div className="h-full rounded-bezel border border-line bg-coal-raised p-8 shadow-soft sm:p-10">
               <PanelLabel icon={IdentificationBadge}>
                 Professional Memberships
               </PanelLabel>
@@ -160,7 +160,7 @@ export function Credentials() {
                 {languages.map((lang) => (
                   <span
                     key={lang}
-                    className="rounded-full border border-line bg-paper-deep px-3 py-1 text-[13px] font-medium text-ink-soft"
+                    className="rounded-full border border-line bg-coal-soft px-3 py-1 text-[13px] font-medium text-ink-soft"
                   >
                     {lang}
                   </span>
